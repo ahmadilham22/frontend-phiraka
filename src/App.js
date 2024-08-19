@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import AddUser from './components/AddUser';
+import EditUser from './components/EditUser';
+import FibonacciTable from './components/Fibonacci';
+import Login from './components/Login';
+import UserList from './components/UserList';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/home" element={<UserList />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/add" element={<AddUser />} />
+        <Route path="/edit/:id" element={<EditUser />} />
+        <Route path="/fibonaci" element={<FibonacciTable />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
